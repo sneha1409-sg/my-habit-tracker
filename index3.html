@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Study Planner</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background: linear-gradient(135deg, #4facfe, #00f2fe);
+color:white;
+}
+
+/* Header */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 30px;
+background:#0f2027;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+}
+
+/* Hero section */
+
+.hero{
+text-align:center;
+padding:40px;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+/* Planner card */
+
+.container{
+width:350px;
+margin:20px auto;
+background:white;
+color:black;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+.habit{
+margin:10px 0;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#2c7be5;
+color:white;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1a5bb8;
+}
+
+#result{
+margin-top:10px;
+font-weight:bold;
+}
+
+/* Progress bar */
+
+.progress-container{
+width:100%;
+background:#ddd;
+border-radius:10px;
+margin-top:10px;
+}
+
+.progress-bar{
+height:20px;
+width:0%;
+background:#2c7be5;
+border-radius:10px;
+}
+
+/* Footer */
+
+footer{
+text-align:center;
+padding:15px;
+background:#0f2027;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">🤖 AI Study Planner</div>
+<nav>
+<a href="#">Home</a>
+<a href="#">Subjects</a>
+<a href="#">About</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Smart Study Tracker</h1>
+<p>Track your daily learning progress</p>
+</div>
+
+<div class="container">
+
+<h2>Today's Study Goals</h2>
+
+<div class="habit">
+<input type="checkbox" class="subject"> 📚 Data Structures
+</div>
+
+<div class="habit">
+<input type="checkbox" class="subject"> 💻 Operating System
+</div>
+
+<div class="habit">
+<input type="checkbox" class="subject"> 📊 Mathematics
+</div>
+
+<div class="habit">
+<input type="checkbox" class="subject"> ☁ Cloud Computing
+</div>
+
+<div class="habit">
+<input type="checkbox" class="subject"> 🤖 Artificial Intelligence
+</div>
+
+<button onclick="checkProgress()">Check Progress</button>
+
+<p id="result"></p>
+
+<div class="progress-container">
+<div id="progressBar" class="progress-bar"></div>
+</div>
+
+</div>
+
+<footer>
+Created by Sneha Gosavi | AIML Student
+</footer>
+
+<script>
+
+function checkProgress(){
+
+let subjects=document.querySelectorAll(".subject");
+let completed=0;
+
+for(let i=0;i<subjects.length;i++){
+if(subjects[i].checked){
+completed++;
+}
+}
+
+let total=subjects.length;
+let percent=Math.round((completed/total)*100);
+
+document.getElementById("result").innerHTML=
+"You completed "+completed+" out of "+total+" subjects. Progress: "+percent+"%";
+
+document.getElementById("progressBar").style.width=percent+"%";
+
+}
+
+</script>
+
+</body>
+</html>
