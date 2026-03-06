@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Daily Habit Tracker</title>
+
+<style>
+body{
+    font-family: Arial;
+    background-color:#f4f6f7;
+    text-align:center;
+}
+
+h1{
+    color:#2c3e50;
+}
+
+.container{
+    background:white;
+    width:350px;
+    margin:auto;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0px 0px 10px gray;
+}
+
+.habit{
+    text-align:left;
+    margin:10px;
+}
+
+button{
+    margin-top:15px;
+    padding:10px;
+    border:none;
+    background:#27ae60;
+    color:white;
+    font-size:16px;
+    border-radius:5px;
+}
+
+#result{
+    margin-top:15px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Daily Habit Tracker</h1>
+
+<div class="container">
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> Drink 8 Glasses of Water
+</div>
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> Study for 2 Hours
+</div>
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> Exercise
+</div>
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> Read a Book
+</div>
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> Sleep Before 11 PM
+</div>
+
+<button onclick="checkProgress()">Check Progress</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function checkProgress(){
+
+let habits=document.querySelectorAll(".habitCheck");
+let completed=0;
+
+for(let i=0;i<habits.length;i++){
+    if(habits[i].checked){
+        completed++;
+    }
+}
+
+let total=habits.length;
+let percent=(completed/total)*100;
+
+document.getElementById("result").innerHTML=
+"You completed "+completed+" out of "+total+" habits. Progress: "+percent+"%";
+
+}
+
+</script>
+
+</body>
+</html>
