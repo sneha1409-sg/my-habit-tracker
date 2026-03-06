@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Glow Habit Tracker</title>
+
+<style>
+
+body{
+font-family: Arial, sans-serif;
+margin:0;
+background:#fff0f5;
+}
+
+/* Header */
+
+header{
+background:#ff69b4;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+/* Hero Section */
+
+.hero{
+text-align:center;
+padding:40px;
+background:#ffe4ec;
+}
+
+.hero h1{
+color:#d63384;
+}
+
+/* Habit Section */
+
+.container{
+width:350px;
+margin:30px auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.2);
+}
+
+.habit{
+margin:10px 0;
+}
+
+button{
+width:100%;
+padding:10px;
+background:#ff69b4;
+border:none;
+color:white;
+font-size:16px;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#e75480;
+}
+
+#result{
+margin-top:10px;
+font-weight:bold;
+}
+
+/* Progress bar */
+
+.progress-container{
+width:100%;
+background:#eee;
+border-radius:10px;
+margin-top:10px;
+}
+
+.progress-bar{
+height:20px;
+width:0%;
+background:#ff69b4;
+border-radius:10px;
+}
+
+/* Footer */
+
+footer{
+background:#ff69b4;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="logo">🌸 Glow Tracker</div>
+<nav>
+<a href="#">Home</a>
+<a href="#">Habits</a>
+<a href="#">About</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Build Beautiful Daily Habits</h1>
+<p>Track your healthy lifestyle every day ✨</p>
+</div>
+
+<div class="container">
+
+<h2>Today's Habits</h2>
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> 💧 Drink Water
+</div>
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> 🧴 Skincare Routine
+</div>
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> 🧘 Exercise
+</div>
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> 📚 Study
+</div>
+
+<div class="habit">
+<input type="checkbox" class="habitCheck"> 😴 Sleep Early
+</div>
+
+<button onclick="checkProgress()">Check Progress</button>
+
+<p id="result"></p>
+
+<div class="progress-container">
+<div id="progressBar" class="progress-bar"></div>
+</div>
+
+</div>
+
+<footer>
+© 2026 Glow Habit Tracker | Created by Sneha Gosavi
+</footer>
+
+<script>
+
+function checkProgress(){
+
+let habits = document.querySelectorAll(".habitCheck");
+let completed = 0;
+
+for(let i = 0; i < habits.length; i++){
+    if(habits[i].checked){
+        completed++;
+    }
+}
+
+let total = habits.length;
+let percent = Math.round((completed/total) * 100);
+
+document.getElementById("result").innerHTML =
+"You completed " + completed + " out of " + total + " habits. Progress: " + percent + "%";
+
+document.getElementById("progressBar").style.width = percent + "%";
+
+}
+
+</script>
+
+</body>
+</html>
